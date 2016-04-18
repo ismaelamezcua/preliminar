@@ -16,9 +16,9 @@ The customer wants you to implement the following features:
 are wrong, so your customer wants to give each of his employees the opportunity to
 review their current period working hours report 3 days before the paycheck day.
 
-The JSON must be sent to localhost:3000/checkpoints for the creation of the checkpoint with the user's barcode.
+"The JSON must be sent to localhost:3000/checkpoints for the creation of the checkpoint with the user's barcode."
 
-*Three-point estimation for each feature*
+=== Three-point estimation for each feature
 1. Your customer wants to be able to see which employees are arriving late.
 a = 60 minutes
 m = 80 minutes
@@ -38,34 +38,35 @@ c = 60 minutes
 
 *Employee*
 
+
 Used to store employee's data.
 
-- *name:string* : The name of the employee.
+- name:string : The name of the employee.
 
-- *barcode:integer* : The id on the badge of the employee.
+- barcode:integer : The id on the badge of the employee.
 
-- *department_id:integer* : The user's department. Different departments have different arrival/departure times and arrival/departure time tolerances.
+- department_id:integer : The user's department. Different departments have different arrival/departure times and arrival/departure time tolerances.
 
 
 *Department*
 
 Used to store each department requirements.
 
-- *name:string* : The name of the department.
+- name:string : The name of the department.
 
-- *arrival_time:time* : The time of the employee's permitted arrival to the company.
+- arrival_time:time : The time of the employee's permitted arrival to the company.
 
-- *departure_time:time* : The time of the employee's permitted departure from the company.
+- departure_time:time : The time of the employee's permitted departure from the company.
 
-- *arrival_tolreance:integer* : The arrival tolerance time in minutes permitted by this department.
+- arrival_tolreance:integer : The arrival tolerance time in minutes permitted by this department.
 
-- *departure_tolerance:integer* : The departure tolerance time in minutes permitted by this department.
+- departure_tolerance:integer : The departure tolerance time in minutes permitted by this department.
 
-- *working_hours:integer* : The total working time in hours for the department.
+- working_hours:integer : The total working time in hours for the department.
 
-- *lunch_start:time* : The time when the lunch starts.
+- lunch_start:time : The time when the lunch starts.
 
-- *lunch_finish:time* : The time when the lunch finishes.
+- lunch_finish:time : The time when the lunch finishes.
 
 
 *Checkpoint*
@@ -73,13 +74,16 @@ Used to store each department requirements.
 Used to store each of the employee's arrival and departure times and dates.
 
 
-- *arrival:time* : The time of the employee's arrival to the company.
+- arrival:time : The time of the employee's arrival to the company.
 
-- *departure:time* : The time of the employee's departure from the company.
+- departure:time : The time of the employee's departure from the company.
 
-- *date:date* : The current date of the checkpoint.
+- date:date : The current date of the checkpoint.
 
-- *barcode:integer* : The id on the badge of the employee.
+- barcode:integer : The id on the badge of the employee.
 
 = Known bugs
-1. When creating a new Employee, a Checkpoint entry with the user barcode must already exist. If the entry does not exist, the Employee will be created but an exception will be thrown.
+
+1. When creating a new Employee, a Checkpoint entry with the user barcode must already exist. If the entry does not exist, the Employee will be created but an exception will be thrown. Workaround: Create a Checkpoint first.
+
+2. The webapp crashes when watching a profile for an specific Employee and there are no Checkpoints of him. Workaround: Create a Checkpoint first.
