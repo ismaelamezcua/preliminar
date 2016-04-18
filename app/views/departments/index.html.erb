@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Departments</h1>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Arrival time</th>
+      <th>Departure time</th>
+      <th>Arrival tolerance</th>
+      <th>Departure tolerance</th>
+      <th>Working hours</th>
+      <th>Lunch start</th>
+      <th>Lunch finish</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @departments.each do |department| %>
+      <tr>
+        <td><%= department.name %></td>
+        <td><%= department.arrival_time.strftime("%H:%M:%S") %></td>
+        <td><%= department.departure_time.strftime("%H:%M:%S") %></td>
+        <td><%= department.arrival_tolerance %></td>
+        <td><%= department.departure_tolerance %></td>
+        <td><%= department.working_hours %></td>
+        <td><%= department.lunch_start.strftime("%H:%M:%S") %></td>
+        <td><%= department.lunch_finish.strftime("%H:%M:%S") %></td>
+        <td></td>
+        <td><%= link_to 'Edit', edit_department_path(department) %></td>
+        <td><%= link_to 'Destroy', department, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Department', new_department_path %>

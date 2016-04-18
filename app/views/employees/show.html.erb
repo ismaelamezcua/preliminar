@@ -1,0 +1,48 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Report: <strong><%= @employee.name %></strong> (Department: <%= @department.name %>) </h1>
+
+<table class="table">
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Arrival</th>
+        <th>Departure</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <% @checkpoints.each do |c| %>
+        <% if @last_date < c.date %>
+          <tr class="danger">
+            <td><%= @last_date %></td>
+            <td>-</td>
+            <td>-</td>
+            <td>Missing</td>
+          </tr>
+          <% @last_date = c.date %>
+        <% end %>
+        <% if c.arrival > @department.arrival_time + @arrival_tolerance %>
+          <tr class="danger">
+            <td><%= c.date %></td>
+            <td><%= c.arrival.strftime("%H:%M:%S") %></td>
+            <td><%= c.departure.strftime("%H:%M:%S") %></td>
+            <td>Late</td>
+          </tr>
+        <% else %>
+          <tr class="success">
+            <td><%= c.date %></td>
+            <td><%= c.arrival.strftime("%H:%M:%S") %></td>
+            <td><%= c.departure.strftime("%H:%M:%S") %></td>
+            <td>Ok</td>
+          </tr>
+        <% end %>
+        <% @last_date = @last_date + 1 %>
+      <% end %>
+
+    </tbody>
+  </table>
+
+<%= link_to 'Edit', edit_employee_path(@employee) %> |
+<%= link_to 'Back', employees_path %>

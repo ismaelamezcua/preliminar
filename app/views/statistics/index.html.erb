@@ -1,0 +1,46 @@
+
+<h1>Employee Reports</h1>
+
+<table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Department</th>
+        <th>Date</th>
+        <th>Arrival</th>
+        <th>Departure</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+
+<% @employees.each do |e| %>
+  <% department = Department.find_by(id: e.department_id) %>
+  <% checkpoints = Checkpoint.where(barcode: e.barcode) %>
+  <% arrival_tolerance = department.arrival_tolerance * 60 %>
+
+  <% checkpoints.each do |c| %>
+    <% if c.arrival > department.arrival_time + arrival_tolerance %>
+      <tr class="danger">
+        <td><%= e.name %></td>
+        <td><%= department.name %></td>
+        <td><%= c.date %></td>
+        <td><%= c.arrival.strftime("%H:%M:%S") %></td>
+        <td><%= c.departure.strftime("%H:%M:%S") %></td>
+        <td>Late</td>
+      </tr>
+    <% else %>
+      <tr class="success">
+        <td><%= e.name %></td>
+        <td><%= department.name %></td>
+        <td><%= c.date %></td>
+        <td><%= c.arrival.strftime("%H:%M:%S") %></td>
+        <td><%= c.departure.strftime("%H:%M:%S") %></td>
+        <td>Ok</td>
+      </tr>
+    <% end %>
+  <% end %>
+<% end %>
+
+</tbody>
+</table>

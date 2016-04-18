@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  arrival_time: 2016-04-17 14:55:56
+  departure_time: 2016-04-17 14:55:56
+  arrival_tolerance: 1
+  departure_tolerance: 1
+  working_hours: 1
+  lunch_start: 2016-04-17 14:55:56
+  lunch_finish: 2016-04-17 14:55:56
+
+two:
+  name: MyString
+  arrival_time: 2016-04-17 14:55:56
+  departure_time: 2016-04-17 14:55:56
+  arrival_tolerance: 1
+  departure_tolerance: 1
+  working_hours: 1
+  lunch_start: 2016-04-17 14:55:56
+  lunch_finish: 2016-04-17 14:55:56

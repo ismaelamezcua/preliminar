@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @department.name %>
+</p>
+
+<p>
+  <strong>Arrival time:</strong>
+  <%= @department.arrival_time %>
+</p>
+
+<p>
+  <strong>Departure time:</strong>
+  <%= @department.departure_time %>
+</p>
+
+<p>
+  <strong>Arrival tolerance:</strong>
+  <%= @department.arrival_tolerance %>
+</p>
+
+<p>
+  <strong>Departure tolerance:</strong>
+  <%= @department.departure_tolerance %>
+</p>
+
+<p>
+  <strong>Working hours:</strong>
+  <%= @department.working_hours %>
+</p>
+
+<p>
+  <strong>Lunch start:</strong>
+  <%= @department.lunch_start %>
+</p>
+
+<p>
+  <strong>Lunch finish:</strong>
+  <%= @department.lunch_finish %>
+</p>
+
+<%= link_to 'Edit', edit_department_path(@department) %> |
+<%= link_to 'Back', departments_path %>
