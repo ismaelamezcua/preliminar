@@ -1,6 +1,24 @@
 == README
 
-Three-point estimation for each feature.
+= About
+
+Textile.Co bought a punch card machine that can send a HTTP's JSON POST payloads to a
+server and wants to use it to track arrivals and departures of employees. Working hours for
+employees are from 9 am to 6 pm, Monday to Friday.
+
+The customer wants you to implement the following features:
+
+1. Your customer wants to be able to see which employees are arriving late.
+
+2. Your customer wants to know which employees are not coming to work at all.
+
+3. Your customer’s employees are complaining that the reported hours for a given period
+are wrong, so your customer wants to give each of his employees the opportunity to
+review their current period working hours report 3 days before the paycheck day.
+
+The JSON must be sent to localhost:3000/checkpoints for the creation of the checkpoint with the user's barcode.
+
+*Three-point estimation for each feature*
 1. Your customer wants to be able to see which employees are arriving late.
 a = 60 minutes
 m = 80 minutes

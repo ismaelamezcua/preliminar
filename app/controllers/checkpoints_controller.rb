@@ -43,10 +43,11 @@ class CheckpointsController < ApplicationController
     respond_to do |format|
       if @checkpoint.update(checkpoint_params)
         format.html { redirect_to @checkpoint, notice: 'Checkpoint was successfully updated.' }
-        format.json { render :show, status: :ok, location: @checkpoint }
+        # checkpoints can not be updated through JSON PUT methods
+        #format.json { render :show, status: :ok, location: @checkpoint }
       else
         format.html { render :edit }
-        format.json { render json: @checkpoint.errors, status: :unprocessable_entity }
+        #format.json { render json: @checkpoint.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -57,7 +58,8 @@ class CheckpointsController < ApplicationController
     @checkpoint.destroy
     respond_to do |format|
       format.html { redirect_to checkpoints_url, notice: 'Checkpoint was successfully destroyed.' }
-      format.json { head :no_content }
+      # checkpoints can not be destroyed through JSON DELETE methods
+      #format.json { head :no_content }
     end
   end
 
