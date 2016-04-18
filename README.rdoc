@@ -16,31 +16,38 @@ a = 30 minutes
 b = 40 minutes
 c = 60 minutes
 
-Models.
+#Models.
 
-Employee
+**Employee**
+
 Used to store employee's data.
---
-name:string The name of the employee.
-barcode:integer The id on the badge of the employee.
-department_id:integer The user's department. Different departments have different arrival/departure times and arrival/departure time tolerances.
 
-Department
+
+-**name:string**. The name of the employee.
+-**barcode:integer**. The id on the badge of the employee.
+-**department_id:integer**. The user's department. Different departments have different arrival/departure times and arrival/departure time tolerances.
+
+
+**Department**
+
 Used to store each department requirements.
---
-name:string The name of the department.
-arrival_time:time The time of the employee's permitted arrival to the company.
-departure_time:time The time of the employee's permitted departure from the company.
-arrival_tolreance:integer The arrival tolerance time in minutes permitted by this department.
-departure_tolerance:integer The departure tolerance time in minutes permitted by this department.
-working_hours:integer The total working time in hours for the department.
-lunch_start:time The time when the lunch starts.
-lunch_finish:time The time when the lunch finishes.
 
-Checkpoint
+-**name:string**. The name of the department.
+-**arrival_time:time**. The time of the employee's permitted arrival to the company.
+-**departure_time:time**. The time of the employee's permitted departure from the company.
+-**arrival_tolreance:integer**. The arrival tolerance time in minutes permitted by this department.
+-**departure_tolerance:integer**. The departure tolerance time in minutes permitted by this department.
+-**working_hours:integer**. The total working time in hours for the department.
+-**lunch_start:time**. The time when the lunch starts.
+-**lunch_finish:time**. The time when the lunch finishes.
+
+
+**Checkpoint**
+
 Used to store each of the employee's arrival and departure times and dates.
---
-arrival:time The time of the employee's arrival to the company.
-departure:time The time of the employee's departure from the company.
-date:date The current date of the checkpoint.
-barcode:integer The id on the badge of the employee.
+
+
+-**arrival:time**. The time of the employee's arrival to the company.
+-**departure:time**. The time of the employee's departure from the company.
+-**date:date**. The current date of the checkpoint.
+-**barcode:integer**. The id on the badge of the employee.
